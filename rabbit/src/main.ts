@@ -1,16 +1,16 @@
-import "./assets/main.css";
-
 import { createApp } from "vue";
 import { createPinia } from "pinia";
 
 import App from "./App.vue";
 import router from "./router";
-import getCategory from "./apis/testApi";
+// import getCategory from "./apis/testApi";
 
-// 获取分类列表
-getCategory().then((res) => {
-  console.log(res);
-});
+// // 获取分类列表
+// getCategory().then((res) => {
+//   console.log(res);
+// });
+
+import "@/styles/common.scss";
 const app = createApp(App);
 
 app.use(createPinia());
