@@ -1,35 +1,5 @@
-<script setup>
-import { ref, onMounted } from "vue";
-import HomePanel from "./HomePanel.vue";
-import GetGoodsListAPI from "@/apis/Goods";
-
-const goodsList = ref([]);
-
-const getNewList = async () => {
-  const res = await GetGoodsListAPI();
-  goodsList.value = res.result;
-  console.log(res.result);
-  
-};
-onMounted(() => {
-  getNewList();
-});
-</script>
-
 <template>
-  <HomePanel title="新鲜好物" subTitle="新鲜处理品质保证 ">
-    <ul class="goods-list">
-      <li v-for="item in goodsList" :key="item.id">
-        <RouterLink to="/">
-          <img :src="item.picture" alt="" />
-          <p class="name">{{ item.name }}</p>
-          <p class="price">&yen;{{ item.price }}</p>
-        </RouterLink>
-      </li>
-    </ul>
-  </HomePanel>
-
-  <HomePanel title="人气推荐" subTitle="新鲜处理品质保证 ">
+  <HomePanel title="新鲜好物" subTitle="新鲜处理品质保证">
     <ul class="goods-list">
       <li v-for="item in goodsList" :key="item.id">
         <RouterLink to="/">
@@ -42,6 +12,23 @@ onMounted(() => {
   </HomePanel>
 </template>
 
+<script setup>
+import { ref, onMounted } from 'vue';
+import HomePanel from './HomePanel.vue';
+import GetGoodsListAPI from '@/apis/Goods';
+
+const goodsList = ref([]);
+
+const getNewList = async () => {
+  const res = await GetGoodsListAPI();
+  goodsList.value = res.result;
+};
+
+onMounted(() => {
+  getNewList();
+});
+</script>
+
 <style scoped lang="scss">
 .goods-list {
   display: flex;
@@ -51,7 +38,6 @@ onMounted(() => {
   li {
     width: 306px;
     height: 406px;
-
     background: #f0f9f4;
     transition: all 0.5s;
 
@@ -66,7 +52,9 @@ onMounted(() => {
     }
 
     p {
-      font-size: 22px;
+      font-size: 20px;
+      padding-left: 5px;
+      padding-right: 5px;
       padding-top: 12px;
       text-align: center;
       text-overflow: ellipsis;
@@ -75,7 +63,7 @@ onMounted(() => {
     }
 
     .price {
-      color: $priceColor;
+      color: #ff0000; // 替换为实际的颜色值
     }
   }
 }

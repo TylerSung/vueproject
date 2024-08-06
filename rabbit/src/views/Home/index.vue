@@ -17,7 +17,7 @@ import HomeBanner from "./components/HomeBanner.vue";
 import HomeNewGoods from "./components/HomeNewGoods.vue";
 import HomeProduct from "./components/HomeProduct.vue";
 import Hot from "./components/Hot.vue";
-import HomePaneL from "./components/HomePanel.vue";
+
 </script>
 
 <style scoped></style>

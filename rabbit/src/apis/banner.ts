@@ -7,3 +7,4 @@ function getBannerList() {
 }
 
 export default getBannerList;
+
