@@ -11,6 +11,7 @@ import router from "./router";
 // });
 
 import "@/styles/common.scss";
+
 const app = createApp(App);
 
 app.use(createPinia());
