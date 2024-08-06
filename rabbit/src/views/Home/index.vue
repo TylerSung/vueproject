@@ -1,9 +1,11 @@
 <template>
-  <div>
-    <h1>Home</h1>
-  </div>
+  <div class="hi">hello</div>
 </template>
 
 <script setup lang="ts"></script>
 
-<style scoped></style>
+<style scoped>
+.hi {
+  height: 1200px;
+}
+</style>

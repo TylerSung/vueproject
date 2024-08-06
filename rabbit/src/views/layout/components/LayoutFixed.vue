@@ -1,11 +1,9 @@
 <script setup>
-// import LayoutHeaderUl from './LayoutHeaderUl.vue'
-// vueUse
+import { useScroll } from "@vueuse/core";
 import { useCategoryStore } from "@/store/category";
 
 const categoryStore = useCategoryStore();
 
-import { useScroll } from "@vueuse/core";
 const { y } = useScroll(window);
 </script>
 
@@ -13,11 +11,9 @@ const { y } = useScroll(window);
   <div class="app-header-sticky" :class="{ show: y > 78 }">
     <div class="container">
       <RouterLink class="logo" to="/" />
+      <RouterLink to="/">小兔鲜</RouterLink>
       <!-- 导航区域 -->
       <ul class="app-header-nav">
-        <li class="home">
-          <RouterLink to="/">首页</RouterLink>
-        </li>
         <li
           class="home"
           v-for="item in categoryStore.categoryList"
@@ -25,12 +21,7 @@ const { y } = useScroll(window);
         >
           <RouterLink to="/">{{ item.name }}</RouterLink>
         </li>
-      </ul>
-    </div>
-
-    <div class="right">
-      <RouterLink to="/">品牌</RouterLink>
-      <RouterLink to="/">专题</RouterLink>
+       </ul>
     </div>
   </div>
 </template>
@@ -68,7 +59,35 @@ const { y } = useScroll(window);
     background: url("@/assets/images/logo.png") no-repeat right 2px;
     background-size: 160px auto;
   }
+  .app-header-nav {
+    display: flex;
+    padding-left: 40px;
+    position: relative;
+    z-index: 998;
 
+    li {
+      margin-right: 40px;
+      width: 38px;
+      text-align: center;
+
+      a {
+        font-size: 16px;
+        line-height: 32px;
+        height: 32px;
+        display: inline-block;
+
+        &:hover {
+          color: $xtxColor;
+          border-bottom: 1px solid $xtxColor;
+        }
+      }
+
+      .active {
+        color: $xtxColor;
+        border-bottom: 1px solid $xtxColor;
+      }
+    }
+  }
   .right {
     width: 220px;
     display: flex;
